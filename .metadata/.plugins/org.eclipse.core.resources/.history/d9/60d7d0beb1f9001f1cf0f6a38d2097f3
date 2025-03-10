@@ -1,0 +1,22 @@
+package rahulshettyacademy.pageobjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class LandingPage {
+	WebDriver driver;
+	
+	public LandingPage(WebDriver driver) {
+		this.driver=driver;
+	}
+	
+	public void goTo() {
+		driver.get("https://rahulshettyacademy.com/client");
+	}
+	
+	public void loginPage() {
+		driver.findElement(By.id("userEmail")).sendKeys("pratiksingh@gmail.com");
+		driver.findElement(By.id("userPassword")).sendKeys("Pratik@12345");
+		driver.findElement(By.id("login")).click();
+	}
+}

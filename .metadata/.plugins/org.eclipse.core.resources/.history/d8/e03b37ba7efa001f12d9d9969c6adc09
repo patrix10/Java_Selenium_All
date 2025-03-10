@@ -1,0 +1,18 @@
+package rahulshettyacademy.tests;
+
+import java.io.IOException;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import rahulshettyacademy.testComponents.BaseTest;
+
+public class ErrorValidations extends BaseTest {
+
+	    @Test
+	    public void submitOrder() throws IOException {
+
+		            landingPage.loginPage(); 
+		Assert.assertEquals("Incorrect email or password.", landingPage.getErrorMessage());            
+	}
+}

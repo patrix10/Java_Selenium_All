@@ -1,0 +1,25 @@
+package rahulshettyacademy.tests;
+
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+
+import rahulshettyacademy.pageobjects.ProductCatalogue;
+import rahulshettyacademy.testComponents.BaseTest;
+
+public class ErrorValidations extends BaseTest {
+
+	    @Test
+	    public void submitOrder() throws IOException {
+		String ProductName = "ZARA COAT 3";
+
+		            landingPage.loginPage();     
+		
+		ProductCatalogue productCatalogue = new ProductCatalogue(driver);
+		                 productCatalogue.getProductList();
+		                 productCatalogue.addProductToCart(ProductName); 
+		
+		               
+	}
+}

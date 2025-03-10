@@ -1,0 +1,26 @@
+package rahulshettyacademy.pageobjects;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import rahulshettyacademy.AbstractComponents.AbstractComponent;
+
+public class ProductCatalogue extends AbstractComponent {
+	WebDriver driver;
+	
+	public ProductCatalogue(WebDriver driver) {
+		super(driver);
+		this.driver=driver;
+	}
+	
+	List<WebElement> products = driver.findElements(By.cssSelector(".card-body b"));
+	
+	By findBy = By.cssSelector(".mb-3");
+	public List<WebElement> getProductList() {
+		waitforElementVisibility(findBy);
+		return products;
+	}
+}

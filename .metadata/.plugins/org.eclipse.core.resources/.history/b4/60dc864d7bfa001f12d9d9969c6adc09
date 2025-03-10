@@ -1,0 +1,31 @@
+package rahulshettyacademy.tests;
+
+import java.io.IOException;
+//import java.time.Duration;
+//import java.util.List;
+
+//import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.chrome.ChromeDriver;
+//import org.openqa.selenium.support.ui.ExpectedConditions;
+//import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
+
+
+import rahulshettyacademy.pageobjects.ProductCatalogue;
+import rahulshettyacademy.testComponents.BaseTest;
+
+public class ErrorValidations extends BaseTest {
+
+	    @Test
+	    public void submitOrder() throws IOException {
+		String ProductName = "ZARA COAT 3";
+
+		            landingPage.loginPage();     
+		
+		ProductCatalogue productCatalogue = new ProductCatalogue(driver);
+		                 productCatalogue.getProductList();
+		                 productCatalogue.addProductToCart(ProductName); 
+		
+		               
+	}
+}

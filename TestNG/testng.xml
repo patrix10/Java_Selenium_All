@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite1">
+<listeners>
+<listener class-name="Test.Listeners"/>
+</listeners>
+	<parameter name="URL" value="qaclickacademy.com" />
+	<test name="Intro1">
+		<classes>
+			<class name="Test.Intro">
+				<!--PackageName.ClassName-->
+				<methods>
+					<!-- 		<include name="Test2" />    -->
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="Intro2">
+	<parameter name="APIKey" value="123456"/>
+		<classes>
+			<class name="Test.Intro2">
+				<methods>
+					<!-- 		<exclude name="Test4*" />     -->
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

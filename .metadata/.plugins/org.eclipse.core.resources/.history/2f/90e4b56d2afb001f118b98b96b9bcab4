@@ -1,0 +1,19 @@
+package rahulshettyacademy.pageobjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class OrderPage {
+    WebDriver driver;
+	
+	public OrderPage(WebDriver driver) {
+		this.driver=driver;
+	}
+	
+	public Boolean getNamesList(String ProductName) {
+		WebElement names = driver.findElement(By.cssSelector("tr td:nth-child(3)"));
+		Boolean match = names.getText().equalsIgnoreCase(ProductName);
+		return match;
+	}
+}

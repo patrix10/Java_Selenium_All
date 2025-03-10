@@ -1,0 +1,23 @@
+package rahulshettyacademy.Pageobjects;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class CartPage {
+	WebDriver driver;
+	
+	public CartPage(WebDriver driver) {
+		this.driver=driver;
+	}
+	
+	public Boolean verifyProduct(String ProductName) {
+		WebElement CartName = driver.findElement(By.cssSelector(".cartSection h3"));
+		Boolean match = CartName.getText().equalsIgnoreCase(ProductName);
+		return match;
+	}
+	
+	public void gotoCheckout() {
+		driver.findElement(By.cssSelector(".totalRow button")).click();
+	}
+}

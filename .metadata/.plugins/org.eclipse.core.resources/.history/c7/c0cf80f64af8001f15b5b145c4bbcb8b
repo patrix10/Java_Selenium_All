@@ -1,0 +1,6 @@
+
+public class PS1 extends PS {
+	public void run() {
+		doThis();
+	}
+}

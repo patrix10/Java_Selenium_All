@@ -1,0 +1,59 @@
+package rahulshettyacademy;
+
+import java.time.Duration;
+//import java.util.List;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+//import org.openqa.selenium.support.ui.ExpectedConditions;
+//import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import rahulshettyacademy.pageobjects.CartPage;
+import rahulshettyacademy.pageobjects.CheckoutPage;
+import rahulshettyacademy.pageobjects.ConfirmationPage;
+import rahulshettyacademy.pageobjects.LandingPage;
+import rahulshettyacademy.pageobjects.ProductCatalogue;
+
+public class StandAloneTest {
+
+	public static void main(String[] args) {
+		String ProductName = "ZARA COAT 3";
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		
+		LandingPage landingPage = new LandingPage(driver);
+		            landingPage.goTo();
+		            landingPage.loginPage();
+		            
+		        //  PageFactory Method
+		        //  landingpage.loginPage("pratiksingh@gmail.com","Pratik@12345");
+		
+		ProductCatalogue productCatalogue = new ProductCatalogue(driver);
+		                 productCatalogue.getProductList();
+		                 productCatalogue.addProductToCart(ProductName); 
+		
+		Assert.assertTrue(true);
+		
+		                 productCatalogue.goToCart();
+		
+		CartPage cartPage = new CartPage(driver);
+	    Boolean match = cartPage.verifyProduct(ProductName);
+	    
+		Assert.assertTrue(match);
+		
+		                cartPage.gotoCheckout(); 
+		                
+		CheckoutPage checkoutPage = new CheckoutPage(driver); 
+			         checkoutPage.selectCountry("india");
+			         checkoutPage.submit();
+		
+        ConfirmationPage confirmationPage = new ConfirmationPage(driver);
+        String confirm =  confirmationPage.getConfirmationMessage(); 
+        
+		Assert.assertEquals(confirm,"THANKYOU FOR THE ORDER.");
+		
+		                  confirmationPage.grabId(); 
+	}
+}

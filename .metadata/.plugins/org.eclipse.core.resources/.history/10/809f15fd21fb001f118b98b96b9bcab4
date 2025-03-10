@@ -1,0 +1,31 @@
+package rahulshettyacademy.pageobjects;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class CartPage {
+	WebDriver driver;
+	
+	public CartPage(WebDriver driver) {
+		this.driver=driver;
+	}
+	
+	public Boolean verifyProduct(String ProductName) {
+		Boolean match = null;
+		List<WebElement> products = driver.findElements(By.cssSelector(".cartSection h3"));
+		for(int i=0;i<products.size();i++) {
+			String name=products.get(i).getText();
+			if(name.contains(ProductName)) {
+				return match;
+			}
+		}
+		return match;
+	}
+	
+	public void gotoCheckout() {
+		driver.findElement(By.cssSelector(".totalRow button")).click();
+	}
+}
